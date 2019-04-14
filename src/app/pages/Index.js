@@ -1,44 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { GET_CONTACTS } from '../actions/types';
 
-export class Index extends Component {
-  constructor() {
-    super();
-    this.state = {
-      contacts: [
-        {
-          id: 1,
-          name: 'Jonh Dou',
-          email: 'jdou@gmail.com',
-          phone: '111-1111-111',
-        },
-        {
-          id: 2,
-          name: 'Berry Smith',
-          email: 'bsmith@gmail.com',
-          phone: '333-3333-333',
-        },
-        {
-          id: 3,
-          name: 'Kate Gross',
-          email: 'kgross@gmail.com',
-          phone: '777-7777-777',
-        },
-      ],
-    };
+
+class Index extends Component {
+  componentDidMount() {
+    this.props.getContacts();
   }
 
   render() {
-    const { contacts } = this.state;
+    const { contacts } = this.props;
     return (
       <div>
-        {contacts.map(contact => (
+        {contacts ? contacts.map(contact => (
           <div key={contact.id}>
             <h2>{contact.name}</h2>
             <p>{contact.email}</p>
             <p>{contact.phone}</p>
           </div>
-        ))}
+        )) : null}
       </div>
     );
   }
 }
+
+Index.propTypes = {
+  contacts: PropTypes.array,
+  getContacts: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  contacts: state.monitor.userdata
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getContacts: () => dispatch({ type: GET_CONTACTS})
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

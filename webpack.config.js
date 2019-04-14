@@ -10,6 +10,7 @@ module.exports = {
     host: 'localhost',
     port: 4000,
     historyApiFallback: true,
+    hot: true,
   },
   entry: './src/index.js',
   output: {
