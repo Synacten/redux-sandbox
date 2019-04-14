@@ -18,7 +18,7 @@ export class Index extends Component {
           phone: '333-3333-333',
         },
         {
-          id: 1,
+          id: 3,
           name: 'Kate Gross',
           email: 'kgross@gmail.com',
           phone: '777-7777-777',
