@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { GET_CONTACTS } from '../actions/types';
+import { getContacts } from '../actions/contactsActions';
 
 
 class Index extends Component {
@@ -26,7 +26,7 @@ class Index extends Component {
 }
 
 Index.propTypes = {
-  contacts: PropTypes.array,
+  contacts: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.any])).isRequired,
   getContacts: PropTypes.func.isRequired,
 };
 
@@ -34,8 +34,5 @@ const mapStateToProps = state => ({
   contacts: state.monitor.userdata,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getContacts: () => dispatch({ type: GET_CONTACTS }),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, { getContacts })(Index);
