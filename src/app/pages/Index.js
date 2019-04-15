@@ -30,12 +30,12 @@ Index.propTypes = {
   getContacts: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  contacts: state.monitor.userdata
+const mapStateToProps = state => ({
+  contacts: state.monitor.userdata,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  getContacts: () => dispatch({ type: GET_CONTACTS})
+const mapDispatchToProps = dispatch => ({
+  getContacts: () => dispatch({ type: GET_CONTACTS }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

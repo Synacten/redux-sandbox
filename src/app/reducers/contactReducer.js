@@ -1,4 +1,4 @@
-import { GET_CONTACTS } from '../actions/types';
+import { GET_CONTACTS, GET_MODAL } from '../actions/types';
 
 const initialState = {
   userdata: [
@@ -21,11 +21,16 @@ const initialState = {
       phone: '777-7777-777',
     },
   ],
+  isOpen: false,
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_CONTACTS:
+      return {
+        ...state,
+      };
+    case GET_MODAL:
       return {
         ...state,
       };

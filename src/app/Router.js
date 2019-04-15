@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import Index from './pages/Index';
 import { Navbar } from './components/layouts/Navbar';
-import { About } from './pages/About';
+import About from './pages/About';
 import { Blog } from './pages/Blog';
 
 export const Router = () => (
@@ -15,8 +15,8 @@ export const Router = () => (
         <Navbar />
         <Switch>
           <Route path="/" exact component={Index} />
-          <Route path="/about" exact component={About} />
-          <Route path="/blog" exact component={Blog} />
+          <Route path="/about" component={About} />
+          <Route path="/blog" component={Blog} />
         </Switch>
       </div>
     </BrowserRouter>
