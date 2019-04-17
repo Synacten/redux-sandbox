@@ -15,6 +15,7 @@ export default function (state = initialState, action) {
     case GET_MODAL:
       return {
         ...state,
+        isOpen: !state.isOpen,
       };
     default:
       return state;

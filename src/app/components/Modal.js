@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class Modal extends Component {
-  constructor() {
-    super();
-    this.state = {
-    };
-  }
+import { getModal } from '../actions/contactsActions';
 
-  closeModal() {
-    console.log('close modal');
-  }
+const Modal = props => (
+  <div>
+        modal window (MODAL)
+    <div role="presentation" onClick={() => props.getModal()}>close modal in modal component</div>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-          modal window
-        <div role="presentation" onClick={this.closeModal}>close modal in modal component</div>
-      </div>
-    );
-  }
-}
+
+Modal.propTypes = {
+  getModal: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  openModal: state.monitor.isOpen,
+});
+
+export default connect(mapStateToProps, { getModal })(Modal);

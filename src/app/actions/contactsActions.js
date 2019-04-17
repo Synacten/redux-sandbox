@@ -10,6 +10,8 @@ export const getContacts = () => async (dispatch) => {
   });
 };
 
-export const getModal = () => ({
-  type: GET_MODAL,
-});
+export const getModal = () => async (dispatch) => {
+  dispatch({
+    type: GET_MODAL,
+  });
+};
