@@ -24,7 +24,7 @@ export class Navbar extends Component {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/blog">Blog</Link></li>
         </ul>
-        <div role="presentation" onClick={this.openModal} opened={isOpen}>open</div>
+        <div role="presentation" onClick={this.openModal} opened={isOpen ? 1 : 0}>open</div>
         {isOpen ? <Modal /> : null}
       </div>
     );

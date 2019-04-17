@@ -4,7 +4,6 @@ export default class Modal extends Component {
   constructor() {
     super();
     this.state = {
-
     };
   }
 
