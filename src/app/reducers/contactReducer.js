@@ -1,8 +1,10 @@
-import { GET_CONTACTS, GET_MODAL } from '../actions/types';
+import { GET_CONTACTS, GET_MODAL, SEARCH } from '../actions/types';
 
 const initialState = {
   userdata: [],
   isOpen: false,
+  testInput: '',
+  searchResult: [],
 };
 
 export default function (state = initialState, action) {
@@ -16,6 +18,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isOpen: !state.isOpen,
+      };
+    case SEARCH:
+      return {
+        ...state,
+        testInput: action.payload,
+        searchResult: action.payload !== '' ? state.userdata.filter(item => item.name.toLowerCase().search(
+          action.payload.toLowerCase(),
+        ) !== -1) : [],
       };
     default:
       return state;
