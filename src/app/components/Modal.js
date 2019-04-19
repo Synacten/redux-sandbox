@@ -15,11 +15,13 @@ const Modal = (props) => {
         <input type="text" name="search" onChange={e => props.getSearchResults(e.target.value)} />
       </div>
       <div>
+        {resultSearch.length > 0 ? (<div>Founded {resultSearch.length}</div>) : null}
         {resultSearch.map(n => (
           <div key={n.id}>
-            <h1>{n.name}</h1>
-            <h4>{n.email}</h4>
-            <h5>{n.company.catchPhrase}</h5>
+            <h1>{n.title}</h1>
+            <h4>{n.director}</h4>
+            <h5>{n.count}</h5>
+            <img src={n.img} alt="" style={{ maxWidth: '100px', width: '100%' }} />
           </div>
         ))}
       </div>
@@ -42,7 +44,7 @@ const mapStateToProps = state => ({
 
 
 const ModalC = styled.div`
-  background-color: yellow;
+  background-color: bisque;
   .searchInput{
     color: red;
   }

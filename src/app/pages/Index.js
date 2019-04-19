@@ -11,13 +11,14 @@ class Index extends Component {
 
   render() {
     const { contacts } = this.props;
+    console.log(this.props.contacts);
     return (
       <div>
-        {contacts ? contacts.map(contact => (
+        {contacts.data ? contacts.data.map(contact => (
           <div key={contact.id}>
-            <h2>{contact.name}</h2>
-            <p>{contact.email}</p>
-            <p>{contact.phone}</p>
+            <h2>{contact.title}</h2>
+            <p>{contact.director}</p>
+            <p>{contact.count}</p>
           </div>
         )) : null}
       </div>

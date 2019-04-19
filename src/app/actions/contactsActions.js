@@ -3,10 +3,10 @@ import { GET_CONTACTS, GET_MODAL, SEARCH } from './types';
 
 
 export const getContacts = () => async (dispatch) => {
-  const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+  const { data } = await axios.get('http://localhost:3700/php/api/post/read.php');
   dispatch({
     type: GET_CONTACTS,
-    payload: res.data,
+    payload: data,
   });
 };
 

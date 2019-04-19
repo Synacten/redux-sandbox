@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         testInput: action.payload,
-        searchResult: action.payload !== '' ? state.userdata.filter(item => item.name.toLowerCase().search(
+        searchResult: action.payload !== '' ? state.userdata.data.filter(item => item.director.toLowerCase().search(
           action.payload.toLowerCase(),
         ) !== -1) : [],
       };
