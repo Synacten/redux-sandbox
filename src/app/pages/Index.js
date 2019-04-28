@@ -6,19 +6,18 @@ import { getContacts } from '../actions/contactsActions';
 
 class Index extends Component {
   componentDidMount() {
-    this.props.getContacts();
+    const { getContacts: _getContacts } = this.props;
+    _getContacts();
   }
 
   render() {
     const { contacts } = this.props;
-    console.log(this.props.contacts);
     return (
       <div>
         {contacts.data ? contacts.data.map(contact => (
           <div key={contact.id}>
             <h2>{contact.title}</h2>
-            <p>{contact.director}</p>
-            <p>{contact.count}</p>
+            <p>{contact.body}</p>
           </div>
         )) : null}
       </div>
@@ -28,6 +27,7 @@ class Index extends Component {
 
 Index.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.any])).isRequired,
+  getContacts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

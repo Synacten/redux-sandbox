@@ -19,9 +19,7 @@ const Modal = (props) => {
         {resultSearch.map(n => (
           <div key={n.id}>
             <h1>{n.title}</h1>
-            <h4>{n.director}</h4>
-            <h5>{n.count}</h5>
-            <img src={n.img} alt="" style={{ maxWidth: '100px', width: '100%' }} />
+            <h4>{n.body}</h4>
           </div>
         ))}
       </div>
