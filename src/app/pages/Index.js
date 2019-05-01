@@ -26,7 +26,7 @@ class Index extends Component {
 }
 
 Index.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.any])).isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.any])).isRequired,
   getContacts: PropTypes.func.isRequired,
 };
 

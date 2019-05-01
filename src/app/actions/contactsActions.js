@@ -4,6 +4,7 @@ import { GET_CONTACTS, GET_MODAL, SEARCH } from './types';
 
 export const getContacts = () => async (dispatch) => {
   const data = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  console.log(typeof data);
   dispatch({
     type: GET_CONTACTS,
     payload: data,
